@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Visual: Ecosistema de Pruebas con VS Code y DevOps para z/OS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* bg-slate-50 */
+        }
+        .step-line::before {
+            content: '';
+            position: absolute;
+            top: 1.5rem;
+            bottom: -1.5rem;
+            left: 1.4rem;
+            width: 2px;
+            background-color: #cbd5e1; /* border-slate-300 */
+        }
+        .step-item:last-child .step-line::before {
+            display: none;
+        }
+        .card {
+             background-color: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            border: 1px solid #e2e8f0; /* border-slate-200 */
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+            transition: all 0.3s ease;
+        }
+         .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <div class="container mx-auto px-4 py-12 md:py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Guía del Ecosistema de Pruebas Moderno
+            </h1>
+            <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+                Implementando una estrategia de pruebas nativa para DevOps en z/OS con <span class="font-semibold text-indigo-600">VS Code, ITB y Galasa</span>.
+            </p>
+        </header>
+
+        <!-- Section 1: El Ecosistema -->
+        <section id="ecosystem" class="mb-20">
+            <h2 class="text-3xl font-bold text-slate-800 text-center mb-10">1. El Ecosistema: Componentes Clave</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card: Estación de Trabajo -->
+                <div class="card p-6">
+                    <div class="flex items-center mb-4">
+                        <span class="p-2 bg-blue-100 text-blue-600 rounded-lg mr-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></span>
+                        <h3 class="text-xl font-bold text-slate-900">Estación de Trabajo</h3>
+                    </div>
+                    <ul class="space-y-2 text-slate-600 text-sm">
+                        <li><span class="font-semibold">VS Code:</span> Editor de código principal.</li>
+                        <li><span class="font-semibold">Extensión ITB:</span> Graba y genera pruebas.</li>
+                        <li><span class="font-semibold">Zowe Explorer:</span> Puente con el mainframe.</li>
+                        <li><span class="font-semibold">JDK, Maven, Git:</span> Herramientas de desarrollo.</li>
+                    </ul>
+                </div>
+                <!-- Card: Automatización -->
+                <div class="card p-6">
+                    <div class="flex items-center mb-4">
+                        <span class="p-2 bg-green-100 text-green-600 rounded-lg mr-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5V4H4zm0 9h5v5H4v-5zm9-9h5v5h-5V4zm0 9h5v5h-5v-5z" /></svg></span>
+                        <h3 class="text-xl font-bold text-slate-900">Automatización</h3>
+                    </div>
+                    <ul class="space-y-2 text-slate-600 text-sm">
+                        <li><span class="font-semibold">IBM Galasa:</span> Framework para ejecutar las pruebas.</li>
+                        <li><span class="font-semibold">Orquestador CI/CD:</span> Jenkins, Azure DevOps, etc.</li>
+                        <li><span class="font-semibold">WCA4Z:</span> (Opcional) Acelerador de pipelines.</li>
+                    </ul>
+                </div>
+                <!-- Card: Host z/OS -->
+                <div class="card p-6">
+                    <div class="flex items-center mb-4">
+                        <span class="p-2 bg-purple-100 text-purple-600 rounded-lg mr-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg></span>
+                        <h3 class="text-xl font-bold text-slate-900">Host (Mainframe)</h3>
+                    </div>
+                    <ul class="space-y-2 text-slate-600 text-sm">
+                        <li><span class="font-semibold">Dynamic Test Engine:</span> Graba las interacciones de la aplicación (CICS, IMS, Db2).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Implementación -->
+        <section id="implementation" class="mb-20">
+            <h2 class="text-3xl font-bold text-slate-800 text-center mb-12">2. Flujo de Implementación y Configuración</h2>
+            <div class="max-w-2xl mx-auto">
+                <!-- Step 1 -->
+                <div class="step-item relative flex items-start pb-12">
+                    <div class="step-line"></div>
+                    <div class="flex-shrink-0 h-12 w-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-lg">1</div>
+                    <div class="ml-6 flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Configurar el Entorno Local</h3>
+                        <p class="text-slate-600">Instala todas las herramientas necesarias en tu estación de trabajo para conectar, grabar y generar pruebas.</p>
+                        <div class="card p-4 mt-4 text-sm space-y-2">
+                           <p><strong>✓ Instalar Software:</strong> VS Code, Git, JDK, Maven.</p>
+                           <p><strong>✓ Configurar Zowe Explorer:</strong> Instalar extensiones (Zowe, Zowe CICS) y crear perfil de conexión al Debug Profile Service (puerto 8143).</p>
+                           <p><strong>✓ Instalar Galasa:</strong> Añadir `galasactl` al PATH y configurar `settings.xml` de Maven.</p>
+                           <p><strong>✓ Instalar Extensión ITB:</strong> Instalar el fichero `.vsix` en VS Code.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-item relative flex items-start pb-12">
+                    <div class="step-line"></div>
+                    <div class="flex-shrink-0 h-12 w-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-lg">2</div>
+                    <div class="ml-6 flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Crear y Configurar un Proyecto Galasa</h3>
+                        <p class="text-slate-600">Genera la estructura de tu proyecto de pruebas y ajústala para apuntar a tu sistema y aplicación.</p>
+                         <div class="card p-4 mt-4 text-sm space-y-2">
+                           <p><strong>✓ Crear Proyecto:</strong> Usar el comando `> Create Galasa Project` en VS Code.</p>
+                           <p><strong>✓ Configurar Proyecto:</strong> Editar `.taz/itbz/itbz-config.yaml` para definir `userid`, `recordingDataset`, y `transactionid` a grabar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: Ciclo de Vida -->
+        <section id="lifecycle" class="mb-20">
+             <h2 class="text-3xl font-bold text-slate-800 text-center mb-10">3. El Ciclo de Vida de una Prueba Automatizada</h2>
+             <div class="grid md:grid-cols-4 gap-8 text-center">
+                 <div class="card p-6"><h4 class="font-bold text-lg mb-2">1. Grabar</h4><p class="text-sm">Usa los comandos de ITB en VS Code para iniciar y detener la grabación de una transacción en el host.</p></div>
+                 <div class="card p-6"><h4 class="font-bold text-lg mb-2">2. Generar</h4><p class="text-sm">Haz clic derecho sobre el fichero `.rec` descargado para generar un script de prueba Java/Galasa.</p></div>
+                 <div class="card p-6"><h4 class="font-bold text-lg mb-2">3. Ejecutar</h4><p class="text-sm">Usa `mvn` o `galasactl` en la terminal para ejecutar la prueba y verificar los resultados.</p></div>
+                 <div class="card p-6"><h4 class="font-bold text-lg mb-2">4. Versionar</h4><p class="text-sm">Guarda el proyecto de prueba completo en Git para colaborar y para la automatización CI/CD.</p></div>
+             </div>
+        </section>
+
+        <!-- Section 4: DevOps -->
+         <section id="devops">
+            <h2 class="text-3xl font-bold text-slate-800 text-center mb-10">4. Integración con DevOps y WCA4Z</h2>
+             <div class="grid md:grid-cols-2 gap-8">
+                <div class="card p-8">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Pipeline de CI/CD</h3>
+                    <ol class="list-decimal list-inside space-y-3 text-slate-600">
+                        <li><strong>Disparador:</strong> Un `push` a Git activa el pipeline.</li>
+                        <li><strong>Clonado:</strong> El orquestador (Jenkins, etc.) clona el repositorio con las pruebas de Galasa.</li>
+                        <li><strong>Build y Ejecución:</strong> Se ejecuta `mvn verify` para compilar y lanzar las pruebas contra el host.</li>
+                        <li><strong>Reporte:</strong> Los resultados en formato JUnit se publican en el dashboard del pipeline. Un fallo en la prueba detiene el build.</li>
+                    </ol>
+                </div>
+                 <div class="card p-8">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Relación con WCA4Z</h3>
+                    <p class="text-slate-600 mb-4">WCA4Z (Wazi Code Automation for Z) es un conjunto de pipelines de referencia que acelera la adopción de DevOps en z/OS.</p>
+                     <p class="text-slate-600">Las pruebas de Galasa creadas con ITB son un **componente ideal** para ser ejecutado dentro de un pipeline de WCA4Z, añadiendo una capa de validación de integración robusta al flujo de CI/CD existente.</p>
+                </div>
+             </div>
+        </section>
+        
+    </div>
+
+    <footer class="mt-16 pt-8 border-t border-slate-200 text-center">
+        <p class="text-sm text-slate-500">Guía generada para modernizar las pruebas en z/OS.</p>
+    </footer>
+
+</body>
+</html>
