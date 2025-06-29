@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Implementación: IBM Test Accelerator for Z</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-bottom-color: #3b82f6;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg class="h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-1.621-1.621A3 3 0 0 1 14 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h9.75a2.25 2.25 0 0 1 2.25 2.25Z" />
+                </svg>
+                <h1 class="text-xl font-bold text-slate-900">IBM Test Accelerator for Z</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#fases" class="text-slate-600 hover:text-blue-600 transition-colors">Fases</a>
+                <a href="#componentes" class="text-slate-600 hover:text-blue-600 transition-colors">Componentes</a>
+                <a href="#detalles" class="text-slate-600 hover:text-blue-600 transition-colors">Detalles Críticos</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        
+        <!-- Hero Section -->
+        <section class="text-center py-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">Transformando las Pruebas en z/OS</h2>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-8">
+                Acelere sus ciclos de desarrollo, automatice sus pruebas y garantice la calidad de sus aplicaciones mainframe con nuestra guía de implementación paso a paso, basada en las mejores prácticas del PMBOK.
+            </p>
+            <a href="#fases" class="bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
+                Comenzar Implementación
+            </a>
+        </section>
+
+        <!-- Fases de Implementación -->
+        <section id="fases" class="py-16">
+            <h3 class="text-3xl font-bold text-center text-slate-900 mb-12">Fases de Implementación del Proyecto</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <!-- Fase 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-500">
+                    <span class="text-blue-500 font-bold text-sm">FASE 1</span>
+                    <h4 class="font-bold text-xl mt-2 mb-3 text-slate-900">Iniciación</h4>
+                    <p class="text-slate-600 text-sm">Definir el alcance y los objetivos. Comprender el valor de TAZ para automatizar pruebas, facilitar TDD y eliminar el provisionamiento manual de entornos.</p>
+                </div>
+                <!-- Fase 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-indigo-500">
+                     <span class="text-indigo-500 font-bold text-sm">FASE 2</span>
+                    <h4 class="font-bold text-xl mt-2 mb-3 text-slate-900">Planificación</h4>
+                    <p class="text-slate-600 text-sm">Preparar el terreno, verificar prerrequisitos de hardware, software y seguridad para cada componente, y establecer el plan de acción detallado.</p>
+                </div>
+                <!-- Fase 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-purple-500">
+                    <span class="text-purple-500 font-bold text-sm">FASE 3</span>
+                    <h4 class="font-bold text-xl mt-2 mb-3 text-slate-900">Ejecución</h4>
+                    <p class="text-slate-600 text-sm">Instalación y configuración detallada de los componentes en el host (z/OS) y en las estaciones de trabajo cliente (Eclipse, VS Code).</p>
+                </div>
+                <!-- Fase 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-pink-500">
+                     <span class="text-pink-500 font-bold text-sm">FASE 4</span>
+                    <h4 class="font-bold text-xl mt-2 mb-3 text-slate-900">Monitoreo y Control</h4>
+                    <p class="text-slate-600 text-sm">Puesta en marcha de la solución: grabar sesiones, generar casos de prueba, ejecutar y analizar los resultados para un control de calidad efectivo.</p>
+                </div>
+                 <!-- Fase 5 -->
+                 <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
+                    <span class="text-teal-500 font-bold text-sm">FASE 5</span>
+                   <h4 class="font-bold text-xl mt-2 mb-3 text-slate-900">Cierre</h4>
+                   <p class="text-slate-600 text-sm">Consolidar el éxito, integrar las pruebas en pipelines CI/CD y establecer prácticas de formación y optimización continua para maximizar el ROI.</p>
+               </div>
+            </div>
+        </section>
+
+        <!-- Componentes en Profundidad -->
+        <section id="componentes" class="py-16">
+            <h3 class="text-3xl font-bold text-center text-slate-900 mb-4">Componentes en Profundidad</h3>
+            <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+                Explora cada componente de IBM Test Accelerator for Z. Haz clic en las pestañas para ver los detalles de instalación, configuración y uso.
+            </p>
+
+            <div class="bg-white rounded-xl shadow-lg p-4 sm:p-8">
+                <!-- Tab Buttons -->
+                <div class="border-b border-slate-200 mb-8">
+                    <nav class="flex flex-wrap -mb-px" aria-label="Tabs">
+                        <button class="tab-btn active w-full sm:w-auto text-center sm:text-left whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-slate-500 hover:text-blue-600 hover:border-blue-300" data-tab="1">
+                            Dynamic Test Engine
+                        </button>
+                        <button class="tab-btn w-full sm:w-auto text-center sm:text-left whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-slate-500 hover:text-blue-600 hover:border-blue-300" data-tab="2">
+                            Early Development Testing
+                        </button>
+                        <button class="tab-btn w-full sm:w-auto text-center sm:text-left whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-slate-500 hover:text-blue-600 hover:border-blue-300" data-tab="3">
+                            Integration Test Builder
+                        </button>
+                        <button class="tab-btn w-full sm:w-auto text-center sm:text-left whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-slate-500 hover:text-blue-600 hover:border-blue-300" data-tab="4">
+                            On-Demand Environment
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Tab Content -->
+                <div>
+                    <!-- Tab 1: Dynamic Test Engine -->
+                    <div id="tab-1" class="tab-content active">
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">Dynamic Test Engine for z/OS (Host Component)</h4>
+                        <p class="text-slate-600 mb-6">El corazón de la capacidad de grabación y reproducción de TAZ. Se instala en z/OS y es una característica del z/OS Debugger.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="accordion-item border border-slate-200 rounded-lg">
+                                <button class="accordion-header w-full text-left p-4 bg-slate-100 hover:bg-slate-200 rounded-t-lg flex justify-between items-center transition">
+                                    <span class="font-semibold">Prerrequisitos en Host</span>
+                                    <svg class="h-5 w-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </button>
+                                <div class="accordion-content p-4">
+                                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                                        <li>z/OS 2.4 o superior.</li>
+                                        <li>z/OS Debugger v16.0.6 o v17.0.1.</li>
+                                        <li>Sistema de archivos UNIX de z/OS montado con el bit `SETUID` activo.</li>
+                                        <li>Acceso y permisos para actualizar PARMLIB, PROCLIB y definiciones de seguridad (RACF).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border border-slate-200 rounded-lg">
+                                <button class="accordion-header w-full text-left p-4 bg-slate-100 hover:bg-slate-200 rounded-t-lg flex justify-between items-center transition">
+                                    <span class="font-semibold">Configuración en z/OS</span>
+                                    <svg class="h-5 w-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </button>
+                                <div class="accordion-content p-4">
+                                    <ol class="list-decimal list-inside space-y-3 text-slate-600">
+                                        <li><strong>Instalación SMP/E:</strong> Seguir el Program Directory correspondiente.</li>
+                                        <li><strong>Actualizaciones de PARMLIB:</strong>
+                                            <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+                                                <li>`IFAPRDxx`: Habilitar producto `IBM Test Accelerator for Z` (ID 5900-BBG).</li>
+                                                <li>`LPALSTxx`: Añadir `EQAW.SEQALPA` a la LPA.</li>
+                                                <li>`PROGxx`: Autorizar con APF la librería `EQAW.SEQAMOD`.</li>
+                                                <li>`COMMNDxx`: (Para CICS/IMS) Añadir `S EQAPROF` para iniciar el Debug Profile Service.</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Actualizaciones de PROCLIB:</strong> Copiar y personalizar el PROC `EQAPPLAY` de `EQAW.SEQASAMP` a `SYS1.PROCLIB`.</li>
+                                        <li><strong>Definiciones de Seguridad (RACF):</strong> Activar clases (`FACILITY`, `STARTED`), definir la tarea `EQAPROF` con un ID protegido y otorgar permisos para actuar como servidor UNIX seguro y gestionar certificados.</li>
+                                        <li><strong>Configurar Debug Profile Service:</strong> Personalizar `eqaprof.env` (puerto, seguridad) y `dtcn.ports` (mapeo de regiones CICS).</li>
+                                        <li><strong>Integración con Subsistemas:</strong>
+                                            <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+                                                <li><strong>CICS:</strong> Actualizar CSD, parámetros de SIP (`DEBUGTOOL=NO`, `TCPIP=YES`) y JCL de la región.</li>
+                                                <li><strong>IMS:</strong> Añadir `EQAW.SEQAMOD` al `STEPLIB` de las regiones de mensajes y `IMSBATCH`.</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Early Development Testing -->
+                    <div id="tab-2" class="tab-content">
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">Early Development Testing for z/OS (Cliente)</h4>
+                        <p class="text-slate-600 mb-6">Permite la creación, ejecución y depuración de pruebas unitarias y de integración tempranas en un IDE basado en Eclipse (IDz).</p>
+                        
+                        <div class="space-y-4">
+                            <div class="accordion-item border border-slate-200 rounded-lg">
+                                <button class="accordion-header w-full text-left p-4 bg-slate-100 hover:bg-slate-200 rounded-t-lg flex justify-between items-center transition">
+                                    <span class="font-semibold">Instalación y Configuración del Cliente</span>
+                                    <svg class="h-5 w-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </button>
+                                <div class="accordion-content p-4">
+                                    <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                                        <li><strong>Prerrequisitos:</strong> IBM Developer for z/OS (IDz) v16.0.6+ o v17.0.1 en Windows (x86-64).</li>
+                                        <li><strong>Instalación:</strong> Usar IBM Installation Manager o Eclipse P2 para añadir TAZ como una extensión a IDz.</li>
+                                        <li><strong>Configuración en Eclipse:</strong> Ir a `Window > Preferences > Early Development Testing for z/OS` para configurar HLQ para archivos de grabación y otras opciones.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border border-slate-200 rounded-lg">
+                                <button class="accordion-header w-full text-left p-4 bg-slate-100 hover:bg-slate-200 rounded-t-lg flex justify-between items-center transition">
+                                    <span class="font-semibold">Flujo de Trabajo</span>
+                                    <svg class="h-5 w-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </button>
+                                <div class="accordion-content p-4">
+                                    <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                                        <li><strong>Crear Caso de Prueba:</strong> Clic derecho en un fuente COBOL local > `New > Unit Test`.</li>
+                                        <li><strong>Grabar Datos:</strong> En el Test Case Editor, usar el botón `Start recording data` para CICS, IMS o Batch. Ejecutar la transacción/job en el host.</li>
+                                        <li><strong>Generar y Construir:</strong> Usar el botón `Generate` para crear el programa de prueba y construirlo (ej. con DBB).</li>
+                                        <li><strong>Ejecutar y Depurar:</strong> Clic derecho en el archivo `.tc` > `Run As` o `Debug As`.</li>
+                                        <li><strong>Ver Resultados:</strong> Se muestran en la vista `Unit Test Runner Results` y pueden exportarse a JUnit o PDF.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab 3: Integration Test Builder -->
+                    <div id="tab-3" class="tab-content">
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">Integration Test Builder for z/OS (Cliente)</h4>
+                        <p class="text-slate-600 mb-6">Acelera la creación de pruebas de integración automatizadas y desplegables utilizando el framework Galasa en VS Code.</p>
+                        
+                         <div class="space-y-4">
+                            <div class="accordion-item border border-slate-200 rounded-lg">
+                                <button class="accordion-header w-full text-left p-4 bg-slate-100 hover:bg-slate-200 rounded-t-lg flex justify-between items-center transition">
+                                    <span class="font-semibold">Instalación y Configuración del Cliente</span>
+                                    <svg class="h-5 w-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </button>
+                                <div class="accordion-content p-4">
+                                    <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                                        <li><strong>Prerrequisitos:</strong> VS Code, Zowe Explorer, Zowe Explorer for CICS, IBM Semeru JDK 11/17, Maven.</li>
+                                        <li><strong>Instalación:</strong> Instalar la extensión `.vsix` desde VS Code. Instalar IBM Distribution for Galasa.</li>
+                                        <li><strong>Configuración en VS Code:</strong>
+                                            <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+                                                <li>Usar el comando `> Create Galasa Project`.</li>
+                                                <li>Editar `.taz/itbz/itbz-config.yaml` para configurar ID de usuario, DBRM, dataset de grabación, etc.</li>
+                                                <li>Configurar `zowe.config.user.yaml` con las credenciales y el puerto del Debug Profile Service.</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border border-slate-200 rounded-lg">
+                                <button class="accordion-header w-full text-left p-4 bg-slate-100 hover:bg-slate-200 rounded-t-lg flex justify-between items-center transition">
+                                    <span class="font-semibold">Flujo de Trabajo</span>
+                                    <svg class="h-5 w-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </button>
+                                <div class="accordion-content p-4">
+                                    <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                                        <li><strong>Grabar Caso de Prueba:</strong> Usar los comandos `> IBM Integration Test Builder for z/OS: Start/Stop recording`.</li>
+                                        <li><strong>Interactuar con la Aplicación:</strong> Usar un emulador 3270 para ejecutar la transacción a grabar.</li>
+                                        <li><strong>Generar Prueba Galasa:</strong> Clic derecho en el archivo de reproducción (`.rec`) > `Generate Galasa integration test`.</li>
+                                        <li><strong>Personalizar y Ejecutar:</strong> Editar el archivo Java generado para añadir aserciones. Ejecutar la prueba desde la línea de comandos con `galasactl runs submit local`.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4: On-Demand Environment -->
+                    <div id="tab-4" class="tab-content">
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">On-demand Dev and Test environment for z/OS</h4>
+                        <p class="text-slate-600 mb-6">Permite el aprovisionamiento rápido y bajo demanda de instancias z/OS completas en entornos Linux, ideal para desarrollo y pruebas aisladas.</p>
+                        
+                         <div class="space-y-4">
+                            <div class="accordion-item border border-slate-200 rounded-lg">
+                                <button class="accordion-header w-full text-left p-4 bg-slate-100 hover:bg-slate-200 rounded-t-lg flex justify-between items-center transition">
+                                    <span class="font-semibold">Instalación y Configuración del Servidor</span>
+                                    <svg class="h-5 w-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </button>
+                                <div class="accordion-content p-4">
+                                    <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                                        <li><strong>Prerrequisitos:</strong> Máquina Linux (RHEL/Ubuntu) en x86-64 o s390x.</li>
+                                        <li><strong>Instalar Servidor de Licencias:</strong> Ejecutar el instalador, obtener un archivo de actualización desde IBM LKC y aplicarlo.</li>
+                                        <li><strong>Instalar "Tools Server":</strong> Ejecutar el instalador `odtz-install-1.0.0.tgz`.</li>
+                                        <li><strong>Configurar vía Web UI (`https://<host>:9443`):</strong>
+                                            <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+                                                <li>Conectar al servidor de almacenamiento (SFTP).</li>
+                                                <li>Añadir el servidor de licencias.</li>
+                                                <li>Definir usuarios, roles y entornos de origen/destino.</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border border-slate-200 rounded-lg">
+                                <button class="accordion-header w-full text-left p-4 bg-slate-100 hover:bg-slate-200 rounded-t-lg flex justify-between items-center transition">
+                                    <span class="font-semibold">Flujo de Trabajo</span>
+                                    <svg class="h-5 w-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                                </button>
+                                <div class="accordion-content p-4">
+                                    <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                                        <li><strong>Crear Componentes:</strong> Desde la UI del "Tools Server", extraer componentes (volúmenes, datasets) del entorno z/OS de origen.</li>
+                                        <li><strong>Crear Imágenes:</strong> Combinar los componentes en una "Imagen" desplegable. Se puede partir de una extracción personalizada o del "Stock Image" de IBM.</li>
+                                        <li><strong>Aprovisionar Instancia:</strong> Seleccionar una imagen y un entorno de destino para desplegar una nueva instancia z/OS virtualizada.</li>
+                                        <li><strong>Gestionar Instancias:</strong> Usar la `Instance Controller UI` o la línea de comandos del host Linux para iniciar, detener e interactuar con la instancia.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detalles Críticos y Troubleshooting -->
+        <section id="detalles" class="py-16">
+             <h3 class="text-3xl font-bold text-center text-slate-900 mb-12">Detalles Críticos y Troubleshooting</h3>
+             <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl mb-4 text-slate-900 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2 text-amber-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
+                        Puntos Clave a Recordar
+                    </h4>
+                     <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start">
+                            <span class="text-blue-500 font-bold mr-2 mt-1">&#10148;</span>
+                            <div><strong>Cambio de Nomenclatura `BZU*` a `EQA*`:</strong> Los casos de prueba creados con ZUnit (prefijo `BZU*`) DEBEN ser regenerados y reconstruidos para usar los nuevos artefactos `EQA*` proporcionados por z/OS Debugger. Esto es fundamental para la compatibilidad.</div>
+                        </li>
+                         <li class="flex items-start">
+                             <span class="text-blue-500 font-bold mr-2 mt-1">&#10148;</span>
+                            <div><strong>Localización de `EQAPPLAY`:</strong> Este PROC es un ejemplo que se encuentra en `EQAW.SEQASAMP`. Debes copiarlo a tu PROCLIB del sistema y adaptarlo a las librerías y convenciones de tu entorno.</div>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-blue-500 font-bold mr-2 mt-1">&#10148;</span>
+                            <div><strong>Generación de Datos de Prueba (TDG):</strong> Esta potente función se inicia desde una prueba ya grabada para explorar rutas de código no cubiertas, no desde cero.</div>
+                        </li>
+                     </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="font-bold text-xl mb-4 text-slate-900 flex items-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                        Solución de Problemas Comunes
+                    </h4>
+                     <ul class="space-y-3 text-slate-600">
+                         <li class="flex items-start">
+                             <span class="text-blue-500 font-bold mr-2 mt-1">&#10148;</span>
+                             <div><strong>Error `Profile_Already_Exists_With_Same_Owner`:</strong> Significa que una grabación ya está en progreso en el Debug Profile Service. Debes detener la sesión activa antes de iniciar una nueva.</div>
+                         </li>
+                        <li class="flex items-start">
+                             <span class="text-blue-500 font-bold mr-2 mt-1">&#10148;</span>
+                             <div><strong>Fallos en `galasactl` (Integration Test Builder):</strong> Verifica que `JAVA_HOME` apunte a una versión soportada de IBM Semeru JDK (11 o 17) y que el CLI de Galasa esté en el `PATH` de tu sistema.</div>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-blue-500 font-bold mr-2 mt-1">&#10148;</span>
+                             <div><strong>Consulta de Logs:</strong> Tu primer paso para diagnosticar cualquier problema. La documentación detalla la ubicación de los logs para cada componente. Por ejemplo, los logs del Tools Server están en `<installation_path>/liberty/usr/servers/server-instance/logs/`.</div>
+                        </li>
+                    </ul>
+                </div>
+             </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 Guía de Implementación. Todos los derechos reservados.</p>
+            <p class="text-xs mt-2">Esta es una guía de ejemplo. Partes de esta guía se derivan de la documentación oficial de IBM Corp. &copy; Copyright IBM Corp. 2025.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.dataset.tab;
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        if (content.id === `tab-${tabId}`) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            const accordions = document.querySelectorAll('.accordion-header');
+            accordions.forEach(accordion => {
+                accordion.addEventListener('click', () => {
+                    const content = accordion.nextElementSibling;
+                    const icon = accordion.querySelector('svg');
+
+                    accordion.parentElement.classList.toggle('open');
+                    icon.classList.toggle('rotate-180');
+
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
