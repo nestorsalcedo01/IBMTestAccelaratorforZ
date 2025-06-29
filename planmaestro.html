@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Maestro de Implementación: IBM Test Accelerator for Z</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #64748b;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        .active-nav {
+            background-color: #e2e8f0;
+            color: #0f172a;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="flex flex-col lg:flex-row">
+        <!-- Sidebar Navigation -->
+        <aside class="w-full lg:w-72 bg-white lg:h-screen lg:sticky lg:top-0 p-6 border-b lg:border-b-0 lg:border-r border-slate-200">
+            <h2 class="text-lg font-bold text-slate-900 mb-4">Navegación</h2>
+            <nav id="navigation-menu" class="space-y-2">
+                <div>
+                    <h3 class="font-semibold text-slate-600 mt-3 mb-1">Fase 1: Planificación</h3>
+                    <a href="#fase1-seccion1" class="block text-sm py-2 px-3 rounded-md hover:bg-slate-100 transition-colors">1. Visión Estratégica</a>
+                    <a href="#fase1-seccion2" class="block text-sm py-2 px-3 rounded-md hover:bg-slate-100 transition-colors">2. Prerrequisitos Globales</a>
+                </div>
+                 <div>
+                    <h3 class="font-semibold text-slate-600 mt-3 mb-1">Fase 2: Host</h3>
+                    <a href="#fase2-seccion3" class="block text-sm py-2 px-3 rounded-md hover:bg-slate-100 transition-colors">3. Configuración Host</a>
+                    <a href="#fase2-seccion4" class="block text-sm py-2 px-3 rounded-md hover:bg-slate-100 transition-colors">4. Seguridad y Red</a>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-600 mt-3 mb-1">Fase 3: Implementación</h3>
+                    <a href="#fase3-seccion5" class="block text-sm py-2 px-3 rounded-md hover:bg-slate-100 transition-colors">5. Early Dev Testing</a>
+                    <a href="#fase3-seccion6" class="block text-sm py-2 px-3 rounded-md hover:bg-slate-100 transition-colors">6. Integration Test Builder</a>
+                    <a href="#fase3-seccion7" class="block text-sm py-2 px-3 rounded-md hover:bg-slate-100 transition-colors">7. On-demand Environment</a>
+                </div>
+                 <div>
+                    <h3 class="font-semibold text-slate-600 mt-3 mb-1">Fase 4: Ejecución</h3>
+                    <a href="#fase4-seccion8" class="block text-sm py-2 px-3 rounded-md hover:bg-slate-100 transition-colors">8. Guía de Ejecución</a>
+                    <a href="#fase4-seccion9" class="block text-sm py-2 px-3 rounded-md hover:bg-slate-100 transition-colors">9. Resolución de Errores</a>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-600 mt-3 mb-1">Fase 5: Gobernanza</h3>
+                    <a href="#fase5-seccion10" class="block text-sm py-2 px-3 rounded-md hover:bg-slate-100 transition-colors">10. Mejores Prácticas</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-10">
+            <header class="mb-10 pb-6 border-b border-slate-300">
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">Plan Maestro de Implementación</h1>
+                <p class="mt-2 text-xl text-slate-600">IBM Test Accelerator for Z</p>
+            </header>
+
+            <article class="prose prose-slate max-w-none prose-h2:text-2xl prose-h2:font-bold prose-h2:border-b prose-h2:pb-2 prose-h2:mb-4 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-table:w-full prose-table:text-sm prose-thead:bg-slate-100 prose-th:p-3 prose-th:font-semibold prose-td:p-3 prose-td:border-b prose-td:border-slate-200">
+                
+                <!-- Fase 1 -->
+                <section id="fase1-seccion1">
+                    <h2>Fase 1, Sección 1: Visión Estratégica y Arquitectura</h2>
+                    <h3>1.1. Definiendo la Propuesta de Valor</h3>
+                    <p>La adopción de IBM Test Accelerator for Z representa un cambio estratégico en el ciclo de vida de desarrollo de software (SDLC) para aplicaciones de mainframe. Su propósito fundamental es abordar los desafíos históricos asociados con las pruebas en z/OS. La propuesta de valor se centra en tres pilares clave:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Aceleración del Desarrollo (Shift-Left Testing):</strong> Permite a los desarrolladores crear y ejecutar pruebas unitarias y de integración temprana directamente desde su IDE.</li>
+                        <li><strong>Automatización Integral:</strong> La capacidad de grabar interacciones y generar automáticamente scripts de prueba reduce drásticamente el esfuerzo manual.</li>
+                        <li><strong>Eliminación de Dependencias:</strong> Mediante la virtualización de llamadas a subsistemas, las pruebas pueden ejecutarse sin necesidad de que el middleware o las aplicaciones dependientes estén disponibles.</li>
+                    </ul>
+
+                    <h3>1.2. Análisis Profundo de la Arquitectura</h3>
+                    <p>IBM Test Accelerator for Z es una suite de cuatro componentes interrelacionados:</p>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li><strong>Dynamic Test Engine for z/OS:</strong> El corazón tecnológico del producto. Un motor de grabación y reproducción que se ejecuta en el host z/OS.</li>
+                        <li><strong>Early Development Testing for z/OS (EDT):</strong> Herramienta orientada al desarrollador, integrada en un IDE basado en Eclipse como IDz.</li>
+                        <li><strong>Integration Test Builder for z/OS (ITB):</strong> Herramienta para desarrolladores y testers, integrada en Visual Studio Code. Acelera la creación de pruebas de integración automatizadas basadas en Galasa.</li>
+                        <li><strong>On-demand Dev and Test environment for z/OS (ODTz):</strong> Permite la creación y gestión de instancias virtuales de z/OS en hardware emulado.</li>
+                    </ol>
+
+                    <h3>1.3. Resolviendo la Confusión Central: El Rol de z/OS Debugger</h3>
+                    <p>La funcionalidad de grabación y reproducción no es un producto separado, sino una capacidad avanzada del depurador que se "desbloquea" con la licencia de Test Accelerator for Z. La habilitación del producto se realiza en el miembro <code>IFAPRDxx</code> de <code>SYS1.PARMLIB</code>.</p>
+
+                    <div class="overflow-x-auto mt-6">
+                        <table class="min-w-full">
+                            <caption>Tabla 1: Matriz de Componentes, Funciones y Entornos</caption>
+                            <thead>
+                                <tr>
+                                    <th>Componente</th>
+                                    <th>Función Principal</th>
+                                    <th>Usuario Objetivo</th>
+                                    <th>SO Cliente</th>
+                                    <th>Dependencias Clave del Host</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dynamic Test Engine for z/OS</td>
+                                    <td>Motor de grabación y reproducción de interacciones</td>
+                                    <td>(Motor subyacente)</td>
+                                    <td>N/A</td>
+                                    <td>z/OS Debugger v16.0.6+ / v17.0.1+</td>
+                                </tr>
+                                <tr>
+                                    <td>Early Development Testing (EDT)</td>
+                                    <td>Creación y ejecución de pruebas unitarias/integración temprana</td>
+                                    <td>Desarrollador COBOL</td>
+                                    <td>Windows (x86-64)</td>
+                                    <td>IDz v16.0.6+ / v17.0.1+, Dynamic Test Engine</td>
+                                </tr>
+                                <tr>
+                                    <td>Integration Test Builder (ITB)</td>
+                                    <td>Creación de pruebas de integración automatizadas (Galasa)</td>
+                                    <td>Tester, Desarrollador DevOps</td>
+                                    <td>Windows (x86-64), macOS</td>
+                                    <td>VS Code, Zowe, Galasa, Dynamic Test Engine</td>
+                                </tr>
+                                <tr>
+                                    <td>On-demand Dev/Test (ODTz)</td>
+                                    <td>Aprovisionamiento de entornos virtuales z/OS</td>
+                                    <td>Equipo de Infraestructura</td>
+                                    <td>Linux (x86-64, s390x)</td>
+                                    <td>(Servidor propio)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="fase1-seccion2" class="mt-12">
+                    <h2>Fase 1, Sección 2: Prerrequisitos Globales</h2>
+                    <h3>2.1. Requisitos Consolidados de Hardware y Software</h3>
+                    <p>A continuación se detallan los requisitos clave. Para una lista completa, refiérase a la documentación oficial.</p>
+                    
+                    <div class="overflow-x-auto mt-6">
+                        <table class="min-w-full">
+                           <caption>Tabla 2: Lista de Verificación Maestra de Prerrequisitos</caption>
+                            <thead>
+                                <tr>
+                                    <th>Categoría</th>
+                                    <th>Prerrequisito</th>
+                                    <th>Versión Mínima</th>
+                                    <th>Notas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Host z/OS</td>
+                                    <td>Sistema Operativo z/OS</td>
+                                    <td>v2.4</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Host z/OS</td>
+                                    <td>IBM z/OS Debugger</td>
+                                    <td>v16.0.6 / v17.0.1</td>
+                                    <td>Componente central para Dynamic Test Engine.</td>
+                                </tr>
+                                <tr>
+                                    <td>Cliente EDT</td>
+                                    <td>IBM Developer for z/OS (IDz)</td>
+                                    <td>v16.0.6 / v17.0.1</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Cliente ITB</td>
+                                    <td>Visual Studio Code</td>
+                                    <td>Última</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Cliente ITB</td>
+                                    <td>Zowe Explorer</td>
+                                    <td>v3.0.3</td>
+                                    <td>Incluir extensión de CICS.</td>
+                                </tr>
+                                <tr>
+                                    <td>Red</td>
+                                    <td>Acceso al Puerto 8143/TCP</td>
+                                    <td>Abierto</td>
+                                    <td>Puerto por defecto para Debug Profile Service.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>2.2. Definiendo Roles y Responsabilidades</h3>
+                    <p>Una implementación exitosa requiere una coordinación precisa entre varios roles técnicos:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Líder de Proyecto / Mánager Técnico</li>
+                        <li>Programador de Sistemas z/OS</li>
+                        <li>Administrador de Seguridad (RACF)</li>
+                        <li>Administrador de Red</li>
+                        <li>Administrador de CICS/IMS</li>
+                        <li>Equipos de Desarrollo y Pruebas</li>
+                    </ul>
+                </section>
+
+                <!-- El resto de las fases y secciones se añadirían aquí, siguiendo el mismo patrón -->
+                <section id="fase2-seccion3" class="mt-12">
+                    <h2>Fase 2, Sección 3: Instalación y Configuración Host</h2>
+                     <p>Esta fase es la más crítica. Detalla la configuración única y esencial del entorno z/OS.</p>
+                     <!-- Más contenido -->
+                </section>
+                <section id="fase2-seccion4" class="mt-12">
+                    <h2>Fase 2, Sección 4: Configuración de Seguridad y Red</h2>
+                     <p>Estas tareas son responsabilidad del Administrador de Seguridad (RACF) y del Administrador de Red.</p>
+                     <!-- Más contenido -->
+                </section>
+                <section id="fase3-seccion5" class="mt-12">
+                    <h2>Fase 3, Sección 5: Implementación de EDT</h2>
+                     <p>Este componente está diseñado para desarrolladores COBOL que trabajan en un entorno de IDE tradicional.</p>
+                     <!-- Más contenido -->
+                </section>
+                <section id="fase3-seccion6" class="mt-12">
+                    <h2>Fase 3, Sección 6: Implementación de ITB</h2>
+                     <p>Este componente se dirige a un perfil más moderno, familiarizado con VS Code y DevOps.</p>
+                     <!-- Más contenido -->
+                </section>
+                <section id="fase3-seccion7" class="mt-12">
+                    <h2>Fase 3, Sección 7: Implementación de ODTz</h2>
+                     <p>Este componente es una solución de infraestructura para proporcionar entornos z/OS virtualizados.</p>
+                     <!-- Más contenido -->
+                </section>
+                <section id="fase4-seccion8" class="mt-12">
+                    <h2>Fase 4, Sección 8: Guía de Ejecución y Análisis</h2>
+                     <p>Se centra en los aspectos operativos del uso del producto.</p>
+                     <!-- Más contenido -->
+                </section>
+                <section id="fase4-seccion9" class="mt-12">
+                    <h2>Fase 4, Sección 9: Resolución de Errores Comunes</h2>
+                    <p>Una lista de verificación para abordar las causas más probables de fallos iniciales.</p>
+                     <!-- Más contenido -->
+                </section>
+                <section id="fase5-seccion10" class="mt-12">
+                    <h2>Fase 5, Sección 10: Gobernanza y Mejores Prácticas</h2>
+                    <p>Proporciona orientación estratégica para maximizar el valor de la inversión a largo plazo.</p>
+                    <!-- Más contenido -->
+                </section>
+
+
+            </article>
+
+            <footer class="mt-12 pt-6 border-t border-slate-300 text-center text-sm text-slate-500">
+                <p>Página generada a partir del documento "Plan Maestro de Implementación por Fases para IBM Test Accelerator for Z".</p>
+                <p>&copy; 2024. Todos los derechos reservados.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // JavaScript for highlighting the active section in the navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('#navigation-menu a');
+
+            const observerOptions = {
+                root: null, // relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.3 // trigger when 30% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        // Remove active class from all links
+                        navLinks.forEach(link => {
+                            link.classList.remove('active-nav');
+                            // Clean up existing aria-current attributes
+                            link.removeAttribute('aria-current');
+                        });
+                        
+                        // Add active class to the corresponding link
+                        const activeLink = document.querySelector(`#navigation-menu a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active-nav');
+                            activeLink.setAttribute('aria-current', 'page');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe each section
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
